@@ -7,47 +7,95 @@ function App() {
     <>
       <div className="flex-col min-w-screen min-h-screen flex justify-center items-center">
         {/* Header Section */}
-        <div className="flex justify-center py-4 items-start">
-          <h1 className="text-4xl font-bold ">Calculator App</h1>
+        <div className="flex justify-center py-4 items-center">
           <img
             src={calculatorLogo}
             alt="Calculator Logo"
-            className="w-20 h-20 ml-4"
+            className="w-30 h-30"
           />
+          <h1 className="text-4xl font-bold">Calculator App</h1>
         </div>
         {/* Body Section */}
         <div>
-          <div className="bg-gray-700 px-2 py-1 my-2 text-black text-2xl w-full rounded-lg">
+          <div className="bg-black px-2 py-1 my-2 text-white text-2xl w-full rounded-lg">
             <input type="number" disabled />
           </div>
-          <div className="bg-gray-950 px-2 py-3 my-2 text-black text-2xl w-full rounded-lg">
+          <div className="bg-black px-2 py-3 my-2 text-white text-2xl w-full rounded-lg">
             <input type="number" />
           </div>
-          <div className="grid grid-cols-4 grid-rows-4 gap-2 text-2xl">
-            <button>%</button>
-            <button>C</button>
-            <button>CE</button>
-            <button>X</button>
-            <button>1/x</button>
-            <button>x²</button>
-            <button>√x</button>
-            <button>÷</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>×</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>-</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>+</button>
-            <button>+/-</button>
-            <button>0</button>
-            <button>.</button>
-            <button>=</button>
+          <div className="grid grid-cols-4 grid-rows-4 gap-2 text-xl mt-4">
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              %
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              C
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              CE
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              ←
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              1/x
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              x²
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              √x
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              ÷
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              1
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              2
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              3
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              ×
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              4
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              5
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              6
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              -
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              7
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              8
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              9
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              +
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              +/-
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              0
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              .
+            </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              =
+            </button>
           </div>
         </div>
       </div>
