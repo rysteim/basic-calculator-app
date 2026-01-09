@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen min-w-screen flex justify-center items-center">
+      <div className="min-w-screen min-h-screen flex justify-center items-start">
         {/* Header Section */}
         <div className="flex justify-center py-4 items-center">
           <h1 className="text-4xl font-bold ">Calculator App</h1>
