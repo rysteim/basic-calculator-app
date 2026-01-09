@@ -16,6 +16,9 @@ function App() {
           />
         </div>
         {/* Body Section */}
+        <div>
+          <input type="number" />
+        </div>
         <div className="grid grid-cols-4 grid-rows-4 gap-2">
           <button>C</button>
           <button>CE</button>
