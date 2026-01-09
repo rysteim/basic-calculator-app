@@ -17,29 +17,38 @@ function App() {
         </div>
         {/* Body Section */}
         <div>
-          <input type="number" />
-        </div>
-        <div className="grid grid-cols-4 grid-rows-4 gap-2">
-          <button>C</button>
-          <button>CE</button>
-          <button>X</button>
-          <button>/</button>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>*</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>-</button>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button>+</button>
-          <button>+/-</button>
-          <button>0</button>
-          <button>.</button>
-          <button>=</button>
+          <div className="bg-gray-700 px-2 py-1 my-2 text-black text-2xl w-full rounded-lg">
+            <input type="number" disabled />
+          </div>
+          <div className="bg-gray-950 px-2 py-3 my-2 text-black text-2xl w-full rounded-lg">
+            <input type="number" />
+          </div>
+          <div className="grid grid-cols-4 grid-rows-4 gap-2 text-2xl">
+            <button>%</button>
+            <button>C</button>
+            <button>CE</button>
+            <button>X</button>
+            <button>1/x</button>
+            <button>x²</button>
+            <button>√x</button>
+            <button>÷</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>×</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>+</button>
+            <button>+/-</button>
+            <button>0</button>
+            <button>.</button>
+            <button>=</button>
+          </div>
         </div>
       </div>
     </>
