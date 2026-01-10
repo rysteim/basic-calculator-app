@@ -66,15 +66,21 @@ function App() {
             <input type="number" value={display} />
           </div>
           <div className="grid grid-cols-4 grid-rows-4 gap-2 text-xl mt-4">
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleTotalClick("%")}
+            >
               %
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleAllClear()}
+            >
               AC
             </button>
             <button
               className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={handleClear}
+              onClick={() => handleClearEntry()}
             >
               CE
             </button>
@@ -90,7 +96,10 @@ function App() {
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               √x
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleTotalClick("÷")}
+            >
               ÷
             </button>
             <button
@@ -111,7 +120,10 @@ function App() {
             >
               3
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleTotalClick("×")}
+            >
               ×
             </button>
             <button
@@ -132,7 +144,10 @@ function App() {
             >
               6
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleTotalClick("-")}
+            >
               -
             </button>
             <button
@@ -153,7 +168,10 @@ function App() {
             >
               9
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleTotalClick("+")}
+            >
               +
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
@@ -171,7 +189,10 @@ function App() {
             >
               .
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleTotalClick("=")}
+            >
               =
             </button>
           </div>
