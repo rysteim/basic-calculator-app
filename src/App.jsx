@@ -14,6 +14,28 @@ function App() {
     }
   };
 
+  const handleTotalClick = (operation) => {
+    if (operation === "+") {
+      setTotal(total + display);
+      setDisplay("0");
+    } else if (operation === "-") {
+      setTotal(total - display);
+      setDisplay("0");
+    } else if (operation === "×") {
+      setTotal(total * display);
+      setDisplay("0");
+    } else if (operation === "÷") {
+      setTotal(total / display);
+      setDisplay("0");
+    } else if (operation === "%") {
+      setTotal(total % display);
+      setDisplay("0");
+    } else if (operation === "=") {
+      setDisplay(total);
+      setTotal(total);
+    }
+  };
+
   const handleClearEntry = () => {
     setDisplay("0");
   };
