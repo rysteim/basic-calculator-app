@@ -3,6 +3,16 @@ import calculatorLogo from "./assets/images/calculator-logo.png";
 import "./App.css";
 
 function App() {
+  const [display, setDisplay] = useState("0");
+
+  const handleNumberClick = (value) => {
+    if (display === "0") {
+      setDisplay(value);
+    } else {
+      setDisplay(display + value);
+    }
+  };
+
   return (
     <>
       <div className="flex-col min-w-screen min-h-screen flex justify-center items-center">
