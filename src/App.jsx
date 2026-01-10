@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [display, setDisplay] = useState("0");
+  const [total, setTotal] = useState("0");
 
   const handleNumberClick = (value) => {
     if (display === "0") {
@@ -13,7 +14,12 @@ function App() {
     }
   };
 
-  const handleClear = () => {
+  const handleClearEntry = () => {
+    setDisplay("0");
+  };
+
+  const handleAllClear = () => {
+    setTotal("0");
     setDisplay("0");
   };
 
@@ -41,13 +47,13 @@ function App() {
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               %
             </button>
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+              AC
+            </button>
             <button
               className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
               onClick={handleClear}
             >
-              C
-            </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               CE
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
