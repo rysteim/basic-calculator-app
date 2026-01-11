@@ -7,6 +7,7 @@ function App() {
   const [previousValue, setPreviousValue] = useState(null);
   const [operation, setOperation] = useState(null);
   const [checkOperation, setCheckOperation] = useState(false);
+  const [result, setResult] = useState("0");
 
   const handleCurrentValue = (currValue) => {
     if (checkOperation) {
@@ -32,9 +33,10 @@ function App() {
     const input = parseFloat(currentValue);
 
     if (previousValue === null) {
+      setResult(input);
       setPreviousValue(input);
     } else if (operation) {
-      const result = calculate(previousValue, input, operation);
+      setResult(calculate(previousValue, input, operation));
       setCurrentValue(String(result));
       setPreviousValue(result);
     }
@@ -64,7 +66,7 @@ function App() {
     const input = parseFloat(currentValue);
 
     if (previousValue !== null && operation) {
-      const result = calculate(previousValue, input, operation);
+      setResult(calculate(previousValue, input, operation));
       setCurrentValue(String(result));
       setPreviousValue(null);
       setOperation(null);
@@ -78,6 +80,7 @@ function App() {
 
   const handleAllClear = () => {
     setCurrentValue("0");
+    setResult(null);
     setPreviousValue(null);
     setOperation(null);
     setCheckOperation(null);
@@ -106,7 +109,7 @@ function App() {
         {/* Body Section */}
         <div>
           <div className="bg-black px-2 py-1 my-2 text-white text-2xl w-full rounded-lg">
-            <input type="number" value={currentValue} disabled />
+            <input type="number" value={result} disabled />
           </div>
           <div className="bg-black px-2 py-3 my-2 text-white text-2xl w-full rounded-lg">
             <input type="number" value={currentValue} readOnly />
