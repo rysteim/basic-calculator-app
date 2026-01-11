@@ -3,8 +3,79 @@ import calculatorLogo from "./assets/images/calculator-logo.png";
 import "./App.css";
 
 function App() {
+  // old constants
   const [display, setDisplay] = useState("0");
   const [total, setTotal] = useState("0");
+
+  // new constants
+  const [currentValue, setCurrentValue] = useState("0");
+  const [previousValue, setPreviousValue] = useState(null);
+  const [operation, setOperation] = useState(null);
+  const [checkOperation, setCheckOperation] = useState(false);
+
+  const handleCurrentValue = (currValue) => {
+    if (checkOperation) {
+      setCurrentValue(String(currValue));
+      setCheckOperation(false);
+    } else {
+      setCurrentValue(
+        currentValue === "0" ? String(currValue) : display + currValue
+      );
+    }
+  };
+
+  const handleDecimal = () => {
+    if (checkOperation) {
+      setCurrentValue("0.");
+      setCheckOperation(false);
+    } else if (display.indexOf("." === -1)) {
+      setCurrentValue(currentValue + ".");
+    }
+  };
+
+  const handleOperation = (nextOperation) => {
+    const input = parseFloat(currentValue);
+
+    if (previousValue === null) {
+      setPreviousValue(input);
+    } else if (operation) {
+      const result = calculate(previousValue, input, operation);
+      setCurrentValue(String(result));
+      setPreviousValue(result);
+    }
+
+    setCheckOperation(true);
+    setOperation(nextOperation);
+  };
+
+  const calculate = (firstValue, secondValue, operation) => {
+    switch (operation) {
+      case "+":
+        return firstValue + secondValue;
+      case "-":
+        return firstValue - secondValue;
+      case "×":
+        return firstValue * secondValue;
+      case "÷":
+        return firstValue / secondValue;
+      case "%":
+        return firstValue % secondValue;
+      default:
+        return secondValue;
+    }
+  };
+
+  const handleTotal = () => {
+    const input = parseFloat(currentValue);
+
+    if (previousValue !== null && operation) {
+      const result = calculate(previousValue, input, operation);
+      setCurrentValue(String(result));
+      setPreviousValue(null);
+      setOperation(null);
+      setCheckOperation(true);
+    }
+  };
 
   const handleNumberClick = (value) => {
     if (display === "0") {
@@ -37,12 +108,22 @@ function App() {
   };
 
   const handleClearEntry = () => {
-    setDisplay("0");
+    setCurrentValue("0");
   };
 
   const handleAllClear = () => {
-    setTotal("0");
-    setDisplay("0");
+    setCurrentValue("0");
+    setPreviousValue(null);
+    setOperation(null);
+    setCheckOperation(null);
+  };
+
+  const handleBackspace = () => {
+    if (currentValue.length > 1) {
+      setCurrentValue(currentValue.slice(0, 1));
+    } else {
+      setCurrentValue("0");
+    }
   };
 
   return (
@@ -63,7 +144,7 @@ function App() {
             <input type="number" value={display} disabled />
           </div>
           <div className="bg-black px-2 py-3 my-2 text-white text-2xl w-full rounded-lg">
-            <input type="number" value={display} />
+            <input type="number" value={display} readOnly />
           </div>
           <div className="grid grid-cols-4 grid-rows-4 gap-2 text-xl mt-4">
             <button
