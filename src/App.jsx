@@ -112,22 +112,13 @@ function App() {
             <input type="number" value={display} readOnly />
           </div>
           <div className="grid grid-cols-4 grid-rows-4 gap-2 text-xl mt-4">
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleTotalClick("%")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               %
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleAllClear()}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               AC
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleClearEntry()}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               CE
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
@@ -142,103 +133,55 @@ function App() {
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               √x
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleTotalClick("÷")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               ÷
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("1")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               1
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("2")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               2
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("3")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               3
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleTotalClick("×")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               ×
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("4")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               4
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("5")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               5
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("6")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               6
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleTotalClick("-")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               -
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("7")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               7
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("8")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               8
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("9")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               9
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleTotalClick("+")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               +
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               +/-
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("0")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               0
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleNumberClick("0.0")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               .
             </button>
-            <button
-              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => handleTotalClick("=")}
-            >
+            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               =
             </button>
           </div>
