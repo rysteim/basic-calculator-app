@@ -14,7 +14,7 @@ function App() {
       setCheckOperation(false);
     } else {
       setCurrentValue(
-        currentValue === "0" ? String(currValue) : display + currValue
+        currentValue === "0" ? String(currValue) : currentValue + currValue
       );
     }
   };
@@ -23,7 +23,7 @@ function App() {
     if (checkOperation) {
       setCurrentValue("0.");
       setCheckOperation(false);
-    } else if (display.indexOf("." === -1)) {
+    } else if (currentValue.indexOf("." === -1)) {
       setCurrentValue(currentValue + ".");
     }
   };
@@ -106,22 +106,34 @@ function App() {
         {/* Body Section */}
         <div>
           <div className="bg-black px-2 py-1 my-2 text-white text-2xl w-full rounded-lg">
-            <input type="number" value={display} disabled />
+            <input type="number" value={currentValue} disabled />
           </div>
           <div className="bg-black px-2 py-3 my-2 text-white text-2xl w-full rounded-lg">
-            <input type="number" value={display} readOnly />
+            <input type="number" value={currentValue} readOnly />
           </div>
           <div className="grid grid-cols-4 grid-rows-4 gap-2 text-xl mt-4">
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleOperation("%")}
+            >
               %
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleAllClear()}
+            >
               AC
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleClearEntry()}
+            >
               CE
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleBackspace()}
+            >
               ←
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
@@ -133,55 +145,103 @@ function App() {
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               √x
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleOperation("÷")}
+            >
               ÷
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("1")}
+            >
               1
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("2")}
+            >
               2
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("3")}
+            >
               3
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleOperation("×")}
+            >
               ×
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("4")}
+            >
               4
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("5")}
+            >
               5
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("6")}
+            >
               6
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleOperation("-")}
+            >
               -
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("7")}
+            >
               7
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("8")}
+            >
               8
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("9")}
+            >
               9
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleOperation("+")}
+            >
               +
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
               +/-
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleCurrentValue("0")}
+            >
               0
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleDecimal()}
+            >
               .
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleTotal()}
+            >
               =
             </button>
           </div>
