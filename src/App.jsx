@@ -3,11 +3,6 @@ import calculatorLogo from "./assets/images/calculator-logo.png";
 import "./App.css";
 
 function App() {
-  // old constants
-  const [display, setDisplay] = useState("0");
-  const [total, setTotal] = useState("0");
-
-  // new constants
   const [currentValue, setCurrentValue] = useState("0");
   const [previousValue, setPreviousValue] = useState(null);
   const [operation, setOperation] = useState(null);
@@ -74,36 +69,6 @@ function App() {
       setPreviousValue(null);
       setOperation(null);
       setCheckOperation(true);
-    }
-  };
-
-  const handleNumberClick = (value) => {
-    if (display === "0") {
-      setDisplay(value);
-    } else {
-      setDisplay(display + value);
-    }
-  };
-
-  const handleTotalClick = (operation) => {
-    if (operation === "+") {
-      setTotal(total + display);
-      setDisplay("0");
-    } else if (operation === "-") {
-      setTotal(total - display);
-      setDisplay("0");
-    } else if (operation === "×") {
-      setTotal(total * display);
-      setDisplay("0");
-    } else if (operation === "÷") {
-      setTotal(total / display);
-      setDisplay("0");
-    } else if (operation === "%") {
-      setTotal(total % display);
-      setDisplay("0");
-    } else if (operation === "=") {
-      setDisplay(total);
-      setTotal(total);
     }
   };
 
