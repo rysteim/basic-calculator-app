@@ -24,7 +24,7 @@ function App() {
     if (checkOperation) {
       setCurrentValue("0.");
       setCheckOperation(false);
-    } else if (currentValue.indexOf("." === -1)) {
+    } else if (currentValue.indexOf(".") === -1) {
       setCurrentValue(currentValue + ".");
     }
   };
@@ -37,8 +37,8 @@ function App() {
       setPreviousValue(input);
     } else if (operation) {
       setResult(calculate(previousValue, input, operation));
-      setCurrentValue(String(result));
-      setPreviousValue(result);
+      setCurrentValue(input);
+      setPreviousValue(input);
     }
 
     setCheckOperation(true);
@@ -65,9 +65,9 @@ function App() {
   const handleTotal = () => {
     const input = parseFloat(currentValue);
 
-    if (previousValue !== null && operation) {
+    if (previousValue !== null) {
       setResult(calculate(previousValue, input, operation));
-      setCurrentValue(String(result));
+      setCurrentValue("0");
       setPreviousValue(null);
       setOperation(null);
       setCheckOperation(true);
@@ -80,7 +80,7 @@ function App() {
 
   const handleAllClear = () => {
     setCurrentValue("0");
-    setResult(null);
+    setResult("0");
     setPreviousValue(null);
     setOperation(null);
     setCheckOperation(null);
@@ -109,10 +109,20 @@ function App() {
         {/* Body Section */}
         <div>
           <div className="bg-black px-2 py-1 my-2 text-white text-2xl w-full rounded-lg">
-            <input type="number" value={result} disabled />
+            <input
+              type="number"
+              value={result}
+              className="text-right"
+              disabled
+            />
           </div>
           <div className="bg-black px-2 py-3 my-2 text-white text-2xl w-full rounded-lg">
-            <input type="number" value={currentValue} readOnly />
+            <input
+              type="number"
+              value={currentValue}
+              className="text-right"
+              readOnly
+            />
           </div>
           <div className="grid grid-cols-4 grid-rows-4 gap-2 text-xl mt-4">
             <button
