@@ -10,17 +10,6 @@ function App() {
   const [checkOperation, setCheckOperation] = useState(false);
   const [result, setResult] = useState(null);
 
-  // const handleCurrentValue = (currValue) => {
-  //   if (checkOperation) {
-  //     setCurrentValue(String(currValue));
-  //     setCheckOperation(false);
-  //   } else {
-  //     setCurrentValue(
-  //       currentValue === "0" ? String(currValue) : currentValue + currValue
-  //     );
-  //   }
-  // };
-
   const handleCurrentValue = (currValue) => {
     setCurrentValue(String(currValue));
   };
@@ -102,18 +91,6 @@ function App() {
             className="w-30 h-30"
           />
           <h1 className="text-4xl font-bold">Calculator App</h1>
-          <br />
-          Previous Value:
-          <input type="text" readOnly value={previousValue} />
-          <br />
-          Current Value:
-          <input type="text" readOnly value={currentValue} />
-          <br />
-          Operation:
-          <input type="text" readOnly value={operation} />
-          <br />
-          Result:
-          <input type="text" readOnly value={result} />
         </div>
         {/* Body Section */}
         <div>
