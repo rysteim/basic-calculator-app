@@ -59,6 +59,9 @@ function App() {
       case "x2":
         setResult(value * value);
         break;
+      case "√x":
+        setResult(Math.sqrt(value));
+        break;
       default:
         setResult(value);
         break;
@@ -159,7 +162,10 @@ function App() {
             >
               x²
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => advancedCalculate(currentValue, "√x")}
+            >
               √x
             </button>
             <button
