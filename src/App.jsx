@@ -51,6 +51,15 @@ function App() {
     }
   };
 
+  const advancedCalculate = (value, operation) => {
+    switch (operation) {
+      case "1/x":
+        return setResult(1 / value);
+      default:
+        return setResult(value);
+    }
+  };
+
   const handleTotal = () => {
     const input = parseFloat(currentValue);
     const prevValue = parseFloat(previousValue);
@@ -130,7 +139,10 @@ function App() {
             >
               ←
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => advancedCalculate(currentValue, "1/x")}
+            >
               1/x
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
