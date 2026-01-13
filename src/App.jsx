@@ -51,7 +51,7 @@ function App() {
     }
   };
 
-  const advancedCalculate = (value, operation) => {
+  const handleAdvancedCalculate = (value, operation) => {
     switch (operation) {
       case "1/x":
         setResult(1 / value);
@@ -71,12 +71,20 @@ function App() {
     setPreviousValue("0");
   };
 
+  const handleSign = () => {
+    setCurrentValue((currentValue) => {
+      if (currentValue === "0" || currentValue === "") return currentValue;
+      if (currentValue.startsWith("-")) return currentValue.slice(1);
+      return "-" + currentValue;
+    });
+  };
+
   const handleTotal = () => {
     const input = parseFloat(currentValue);
     const prevValue = parseFloat(previousValue);
 
     setResult(calculate(prevValue, input, operation));
-    setCurrentValue("0");
+    setCurrentValue(calculate(prevValue, input, operation));
     setPreviousValue("0");
     setOperation(null);
   };
@@ -152,19 +160,19 @@ function App() {
             </button>
             <button
               className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => advancedCalculate(currentValue, "1/x")}
+              onClick={() => handleAdvancedCalculate(currentValue, "1/x")}
             >
               1/x
             </button>
             <button
               className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => advancedCalculate(currentValue, "x2")}
+              onClick={() => handleAdvancedCalculate(currentValue, "x2")}
             >
               x²
             </button>
             <button
               className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
-              onClick={() => advancedCalculate(currentValue, "√x")}
+              onClick={() => handleAdvancedCalculate(currentValue, "√x")}
             >
               √x
             </button>
@@ -246,7 +254,10 @@ function App() {
             >
               +
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => handleSign()}
+            >
               +/-
             </button>
             <button
