@@ -84,7 +84,7 @@ function App() {
     const prevValue = parseFloat(previousValue);
 
     setResult(calculate(prevValue, input, operation));
-    setCurrentValue(calculate(prevValue, input, operation));
+    setCurrentValue(String(calculate(prevValue, input, operation)));
     setPreviousValue("0");
     setOperation(null);
   };
