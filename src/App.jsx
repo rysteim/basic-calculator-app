@@ -54,10 +54,18 @@ function App() {
   const advancedCalculate = (value, operation) => {
     switch (operation) {
       case "1/x":
-        return setResult(1 / value);
+        setResult(1 / value);
+        break;
+      case "x2":
+        setResult(value * value);
+        break;
       default:
-        return setResult(value);
+        setResult(value);
+        break;
     }
+
+    setCurrentValue("0");
+    setPreviousValue("0");
   };
 
   const handleTotal = () => {
@@ -145,7 +153,10 @@ function App() {
             >
               1/x
             </button>
-            <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
+            <button
+              className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800"
+              onClick={() => advancedCalculate(currentValue, "x2")}
+            >
               x²
             </button>
             <button className="bg-black text-white rounded-xl p-3 font-semibold hover:bg-gray-700 active:bg-gray-800">
