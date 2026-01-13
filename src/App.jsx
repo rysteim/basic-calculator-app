@@ -1,23 +1,28 @@
 import { useState } from "react";
 import calculatorLogo from "./assets/images/calculator-logo.png";
 import "./App.css";
+import { parse } from "postcss";
 
 function App() {
   const [currentValue, setCurrentValue] = useState("0");
-  const [previousValue, setPreviousValue] = useState(null);
+  const [previousValue, setPreviousValue] = useState("0");
   const [operation, setOperation] = useState(null);
   const [checkOperation, setCheckOperation] = useState(false);
-  const [result, setResult] = useState("0");
+  const [result, setResult] = useState(null);
+
+  // const handleCurrentValue = (currValue) => {
+  //   if (checkOperation) {
+  //     setCurrentValue(String(currValue));
+  //     setCheckOperation(false);
+  //   } else {
+  //     setCurrentValue(
+  //       currentValue === "0" ? String(currValue) : currentValue + currValue
+  //     );
+  //   }
+  // };
 
   const handleCurrentValue = (currValue) => {
-    if (checkOperation) {
-      setCurrentValue(String(currValue));
-      setCheckOperation(false);
-    } else {
-      setCurrentValue(
-        currentValue === "0" ? String(currValue) : currentValue + currValue
-      );
-    }
+    setCurrentValue(String(currValue));
   };
 
   const handleDecimal = () => {
@@ -29,20 +34,32 @@ function App() {
     }
   };
 
+  // const handleOperation = (nextOperation) => {
+  //   const input = parseFloat(currentValue);
+
+  //   if (previousValue === null) {
+  //     setPreviousValue(input);
+  //     setResult(input);
+  //     setCurrentValue("0");
+  //   } else {
+  //     setResult(calculate(previousValue, input, operation));
+  //     setPreviousValue(result);
+  //     setCurrentValue("0");
+  //   }
+
+  //   setOperation(nextOperation);
+  // };
+
   const handleOperation = (nextOperation) => {
     const input = parseFloat(currentValue);
+    const prevValue = parseFloat(previousValue);
 
-    if (previousValue === null) {
-      setResult(input);
-      setPreviousValue(input);
-    } else if (operation) {
-      setResult(calculate(previousValue, input, operation));
-      setCurrentValue(input);
-      setPreviousValue(input);
-    }
-
-    setCheckOperation(true);
     setOperation(nextOperation);
+    setResult(calculate(prevValue, input, operation));
+    setPreviousValue(String(calculate(prevValue, input, operation)));
+    console.log(result);
+
+    setCurrentValue("0");
   };
 
   const calculate = (firstValue, secondValue, operation) => {
@@ -68,7 +85,7 @@ function App() {
     if (previousValue !== null) {
       setResult(calculate(previousValue, input, operation));
       setCurrentValue("0");
-      setPreviousValue(null);
+      setPreviousValue("0");
       setOperation(null);
       setCheckOperation(true);
     }
@@ -105,6 +122,18 @@ function App() {
             className="w-30 h-30"
           />
           <h1 className="text-4xl font-bold">Calculator App</h1>
+          <br />
+          Previous Value:
+          <input type="text" readOnly value={previousValue} />
+          <br />
+          Current Value:
+          <input type="text" readOnly value={currentValue} />
+          <br />
+          Operation:
+          <input type="text" readOnly value={operation} />
+          <br />
+          Result:
+          <input type="text" readOnly value={result} />
         </div>
         {/* Body Section */}
         <div>
