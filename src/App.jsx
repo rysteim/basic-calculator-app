@@ -7,20 +7,21 @@ function App() {
   const [currentValue, setCurrentValue] = useState("0");
   const [previousValue, setPreviousValue] = useState("0");
   const [operation, setOperation] = useState(null);
-  const [checkOperation, setCheckOperation] = useState(false);
   const [result, setResult] = useState(null);
 
   const handleCurrentValue = (currValue) => {
-    setCurrentValue(String(currValue));
+    setCurrentValue((currentValue) =>
+      currentValue === "0"
+        ? String(currValue)
+        : currentValue + String(currValue)
+    );
   };
 
   const handleDecimal = () => {
-    if (checkOperation) {
-      setCurrentValue("0.");
-      setCheckOperation(false);
-    } else if (currentValue.indexOf(".") === -1) {
-      setCurrentValue(currentValue + ".");
-    }
+    setCurrentValue((currentValue) => {
+      if (currentValue.includes(".")) return currentValue;
+      return currentValue + ".";
+    });
   };
 
   const handleOperation = (nextOperation) => {
@@ -69,7 +70,6 @@ function App() {
     setResult("0");
     setPreviousValue("0");
     setOperation(null);
-    setCheckOperation(null);
   };
 
   const handleBackspace = () => {
@@ -95,16 +95,11 @@ function App() {
         {/* Body Section */}
         <div>
           <div className="bg-black px-2 py-1 my-2 text-white text-2xl w-full rounded-lg">
-            <input
-              type="number"
-              value={result}
-              className="text-right"
-              disabled
-            />
+            <input type="text" value={result} className="text-right" disabled />
           </div>
           <div className="bg-black px-2 py-3 my-2 text-white text-2xl w-full rounded-lg">
             <input
-              type="number"
+              type="text"
               value={currentValue}
               className="text-right"
               readOnly
