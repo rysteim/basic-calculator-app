@@ -34,22 +34,6 @@ function App() {
     }
   };
 
-  // const handleOperation = (nextOperation) => {
-  //   const input = parseFloat(currentValue);
-
-  //   if (previousValue === null) {
-  //     setPreviousValue(input);
-  //     setResult(input);
-  //     setCurrentValue("0");
-  //   } else {
-  //     setResult(calculate(previousValue, input, operation));
-  //     setPreviousValue(result);
-  //     setCurrentValue("0");
-  //   }
-
-  //   setOperation(nextOperation);
-  // };
-
   const handleOperation = (nextOperation) => {
     const input = parseFloat(currentValue);
     const prevValue = parseFloat(previousValue);
@@ -57,8 +41,6 @@ function App() {
     setOperation(nextOperation);
     setResult(calculate(prevValue, input, operation));
     setPreviousValue(String(calculate(prevValue, input, operation)));
-    console.log(result);
-
     setCurrentValue("0");
   };
 
@@ -81,14 +63,12 @@ function App() {
 
   const handleTotal = () => {
     const input = parseFloat(currentValue);
+    const prevValue = parseFloat(previousValue);
 
-    if (previousValue !== null) {
-      setResult(calculate(previousValue, input, operation));
-      setCurrentValue("0");
-      setPreviousValue("0");
-      setOperation(null);
-      setCheckOperation(true);
-    }
+    setResult(calculate(prevValue, input, operation));
+    setCurrentValue("0");
+    setPreviousValue("0");
+    setOperation(null);
   };
 
   const handleClearEntry = () => {
@@ -98,7 +78,7 @@ function App() {
   const handleAllClear = () => {
     setCurrentValue("0");
     setResult("0");
-    setPreviousValue(null);
+    setPreviousValue("0");
     setOperation(null);
     setCheckOperation(null);
   };
